@@ -1,21 +1,6 @@
-FROM python:3.7-slim
+FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "app/app.py"]
-
-
-# # First stage: build the application
-# FROM python:3.12-slim AS build
-# WORKDIR /app
-# RUN pip install --upgrade pip
-# COPY requirements.txt ./
-# RUN pip install -r requirements.txt
-# COPY . .
-
-# # Second stage: create the final Docker image
-# FROM python:3.7-slim
-# WORKDIR /app
-# COPY --from=build /app .
-# CMD ["python", ".app.py"]
+COPY . /app
+CMD ["python", "app.py"]

@@ -1,14 +1,15 @@
 version: "3.8"
 services:
-  myapp:
+  api-app:
     build: 
         context: "."
     env_file: ./.env
     restart: unless-stopped
     environment:
-      #   DB_PORT: 3306
+      - OPENAI_KEY=$OPENAI_KEY
       #   DB_HOST: mysql
       # ports:
       #   - "2000:3000"
+    command: python app.py
 volumes:
   db:

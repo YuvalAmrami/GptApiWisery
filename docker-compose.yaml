@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  myapp:
+    build: 
+        context: "."
+    env_file: ./.env
+    restart: unless-stopped
+    environment:
+      #   DB_PORT: 3306
+      #   DB_HOST: mysql
+      # ports:
+      #   - "2000:3000"
+volumes:
+  db:
